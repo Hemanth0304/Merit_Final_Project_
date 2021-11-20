@@ -1,0 +1,317 @@
+<div id="about" class="layout_padding about_section">
+    <form [formGroup]="billDetails" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <div class="container">
+
+           
+            <div  class="row" *ngFor="let item of product;let i = index">
+               
+                <div class="col-md-6" *ngIf="i > product.length -2">
+                    <div><img src="{{item.image}}" style="max-width: 80%; margin-top:90px;"></div><br>
+                    
+                       
+                      
+                </div>
+
+                
+                <div class="col-md-6"  *ngIf="i > product.length -2">
+                    <input type="text" style="display: none;"  class="nginput" formControlName="ProductName" value = "{{this.pr}}" />
+                    <input type="text" style="display: none;" class="nginput" formControlName="invoice" [(ngModel)]= "inv" />
+                    <input type="text" style="display: none;" formControlName="OSName" [(ngModel)]= "on"  />
+                    <input type="text" style="display: none;" formControlName="GraphicsName" [(ngModel)]= "gn"  />
+                    <input type="text" style="display: none;" formControlName="GraphicsPrice" [(ngModel)]= "gp"  />
+                    <input type="text" style="display: none;" formControlName="OSPrice" [(ngModel)] = "op"  />
+                    <input type="text" style="display: none;" formControlName="oosprice" [(ngModel)] = "oneop"  />
+                    <input type="text" style="display: none;" formControlName="oGraphicsPrice" [(ngModel)] = "onegp"  />
+                    <input type="text" style="display: none;" formControlName="Olaptopprice" [(ngModel)] = "onelpr"  />
+
+                    <input type="text" style="color:rgb(255, 255, 255);font-size: 1px; border: 0px solid rgb(0, 0, 0);" formControlName="GrandTotal" [(ngModel)]= "gt" />
+                      
+                    <input type="text" style="color:rgb(255, 255, 255);font-size: 1px; border: 0px solid rgb(255, 255, 255);" class="nginput" formControlName="Bill" [(ngModel)]= "bill" />
+                   
+                    <input type="text" style="display: none;" formControlName="productTotal" value = "{{this.tr}}" />
+                    <h1 class="about_text"><strong>{{item.productName}} </strong></h1>
+                    <h5> {{item.cpu}}</h5>
+                    <h5> {{item.ram}}</h5>
+                    <h5>{{item.storage}}</h5>
+                    <h5>{{item.screen}}</h5>
+                    <h3>{{item.price | currency: 'INR'}}</h3>
+                    
+                    
+                    <p class="about_taital">{{item.description}}</p>
+                    <div class="quantity">
+                        <button class="plus-btn"  type="button" (click)="minus()"> - </button> &nbsp;
+                      
+                      
+                        <input type="text" style="color:rgb(0, 0, 0); border: 0px solid rgb(0, 0, 0);" formControlName="TotalQuantity" [(ngModel)]= "qc"  />
+   
+                        
+                      &nbsp;
+                        <button class="minus-btn" type="button" (click)="plus()"> + </button>
+                      </div>
+                    
+                   
+                      
+                      <button class="read_more" type="button" >Buy Now</button>
+
+                      <div><h3> </h3></div>
+                  
+                </div>
+
+           
+            </div>
+          
+              
+        </div>
+        
+    </div>
+</form>
+    
+</div>
+
+<!-- <input [(ngModel)]="quant" (keyup.enter)="onKeyUp()" />
+
+<div *ngFor="let j of OrderInvoice">
+  <h1>{{j.invoice}}</h1>
+  <h1>{{j.RAM}}</h1>
+
+ 
+</div> -->
+
+
+ <div class="container" *ngFor="let j of Specs " >
+  <h1 style="align-items:center;" class="about-us"> Customise your Laptop </h1>
+  <div class="row">
+      <div class="col-lg-4">
+          <div class="card about-card" >
+              <div class="face front-face">
+                  <img src="{{j.OS_img}}" alt="" class="profile">
+                  <div class="pt-3 text-uppercase name"> {{j.OS}}  </div>
+                  <div class="designation">{{j.OS_Name}}</div>
+                  <div class="designation"> ₹{{j.OS_Price}}</div>
+                  <div class="dummyContent" *ngIf="show"> 
+                    <p style="color:chartreuse"> Product Added</p>
+                
+                   
+                  </div>
+              </div>
+              <div class="face back-face">
+                  <span class="fas fa-quote-left"></span>
+                  <div class="testimonial">{{j.OS_Desc}} <br>
+                   
+                    <button  class="button button2" type="button" [disabled]="clicked"    (click)="os(); clicked =true; show=!show;"> Add it </button> </div> <span class="fas fa-quote-right"></span>
+                    <div class="dummyContent" *ngIf="show"> 
+                      <p style="color:chartreuse"> Product Added</p>
+                  
+                     
+                    </div>
+                  
+              </div>
+          </div>
+      </div>
+
+      <div class="col-lg-4">
+          <div class="card about-card">
+              <div class="face front-face">
+                  <img src="{{j.Graphics_image}}" alt="" class="profile">
+                  <div class="pt-3 text-uppercase name"> {{j.Graphics_name}}</div>
+                  <div class="designation">₹{{j.Graphics_price}} </div>
+              </div>
+              <div class="face back-face">
+                  <span class="fas fa-quote-left"></span>
+                  <div class="testimonial"> {{j.Graphics_Desc}}</div>
+                  <button  class="button button2" type="button" [disabled]="click" (click)="gr(); click = true;"  > Add it </button> <span class="fas fa-quote-right"></span>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="card about-card">
+              <div class="face front-face">
+                  <img src="{{j.SSD_image}}" alt="" class="profile">
+                  <div class="pt-3 text-uppercase name"> {{j.SSD_name}} </div>
+                  <div class="designation">₹{{j.SSD_price}}</div>
+              </div>
+              <div class="face back-face">
+                  <span class="fas fa-quote-left"></span>
+                  <div class="testimonial"> {{j.SSD_Desc}} </div> 
+                  <button  class="button button2" type="button" [disabled]="clic"  clicked = true (click)="os(); clic = true;"> Add it </button><span class="fas fa-quote-right"></span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> 
+
+<div>
+    
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-5">
+      <h3 >&nbsp;Grand Total :</h3>
+     
+  
+   
+    </div>
+   
+    <div class="col-sm-6 ">
+      
+      <h3>{{this.gt | currency:'INR'}}</h3>   
+       <button class="Proceed" (click)="adram();" type="button" >Buy Now</button> 
+    
+          
+      
+
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+
+<select
+placeholder="Select RAM"
+[(ngModel)]="Specs2"
+(ngModelChange)="onRamSelection()"
+>
+<option *ngFor="let r of RAM" [value]="r.value">
+  {{ r.viewValue }}
+<option>
+</select>
+
+
+
+<H6>RAM PRICE:</H6>{{ output }}
+
+
+<!-- Customer Details Form -->
+
+<div class="card m-3" style="border-radius: 20px;height: 420px;">
+    <h5 class="card-header">Billing Details</h5>
+    <div class="card-body">
+        <form [formGroup]="billDetails" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Title</label>
+            <select style="border-radius: 20px;"
+              formControlName="title"
+              class="form-control"
+           
+            >
+              <option value=""></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Ms">Ms</option>
+            </select>
+            <!-- <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+              <div *ngIf="f.title.errors.required">Title is required</div>
+            </div> -->
+          </div>
+          <div class="form-group col-5">
+            <label>First Name</label>
+            <input 
+            style="border-radius: 20px;"
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-5">
+            <label>Contact No.</label>
+            <input style="border-radius: 20px;"
+              type="text"
+              formControlName="phone"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+            />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">Contact number is required</div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input 
+          style="border-radius: 20px;"
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">
+              Email must be a valid email address
+            </div>
+
+           
+
+          </div>
+        </div>
+
+        <!-- Address -->
+        <!-- <div class="form-group">
+          <label>Address</label>
+          <input
+            type="text"
+            formControlName="address"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+          />
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">Address is required</div>
+              Email must be a valid email address
+            </div>
+          </div>
+        </div> -->
+ 
+        
+      
+        <button class="read_more" >Buy Now</button>
+      
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ng-container *ngIf= "false"> -->
+    <!-- <div class="div container">
+        <div class="card">
+            <h5 class="card-title"> Your Cart Page </h5> 
+        </div>
+        <div class="center">
+            <img src="
+            https://drive.google.com/uc?export=view&id=1XxbK5BftrY2MSuSthsso3xjRIsB_WCAN" alt="">
+            <h4>
+                Seems Your Cart is empty !!!
+            </h4>
+      
+        <button class="btn btn-primary"> Shop Now</button>
+        </div>
+    </div> -->
+<!-- 
+</ng-container> -->

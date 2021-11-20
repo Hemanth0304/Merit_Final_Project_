@@ -1,0 +1,44 @@
+ 
+
+<h2 class="product-head">
+    Products
+</h2>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let i of productList">
+            <div class="card col-md-4">
+                <img src="{{i.image}}" alt="" class="">
+               <h5> {{i.productName}}  </h5>
+               
+               <p style="white-space:nowrap;overflow: hidden;text-overflow:ellipsis;max-width: 100ch;">  {{i.description}}   </p>
+               <p>  <strong> ₹ {{i.price}}</strong>   </p>
+               <button style="border-radius: 20px;" class="btn btn-primary" (click)= addtocart(i) >   Buy Now  </button>
+    
+    
+            </div> 
+
+        </ng-container>
+
+        <!-- <div *ngFor="let j of OrderInvoice">
+              <h1>{{j.invoice+1}}</h1>
+              <h1>{{j.RAM}}</h1>
+              <input type="text" style="color:rgb(0, 0, 0); border: 0px solid rgb(255, 255, 255);" class="nginput" formControlName="ProductName" value = "{{j.invoice}}" />
+             
+            </div> -->
+        
+    </div>
+    <div class="center">
+        <div class="pagination" >
+            <a href="#" >&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#" >2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+          </div>
+    
+       
+      </div>
+    

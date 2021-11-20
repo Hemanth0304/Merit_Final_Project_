@@ -1,0 +1,221 @@
+.card{
+     height:65vh;
+     margin:25px;
+     padding:25px;
+}
+.center img{
+    height:250px;
+    width:255px;
+
+     
+}
+
+
+
+  .button2 {background-color: #008CBA;
+    border-radius: 20px;
+    color:white;
+    border:none;
+    margin-top:30px;
+    width: 80px;
+} /* Blue */
+
+/*  */
+.center{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.nginput input[type=text]{
+  color:white;
+  border: 0px solid rgb(255, 255, 255);
+}
+
+/* Display */
+
+.about_text {
+    width: 100%;
+    float: left;
+    color: rgb(23, 58, 216);
+    font-size: 45pt;
+    border-bottom: 3px solid #111111;
+    margin-top: 65px;
+}
+
+.about_taital {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    float: left;
+    color: #686666;
+    font-size: 14pt;
+    margin-left: 0px;
+    padding-top: 20px;
+}
+.read_more {
+    width: 30%;
+    float: left;
+    background-color: rgb(23, 58, 216);
+    height: 50px;
+    font-size: 16pt;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 0px;
+    color: #fff;
+}
+
+    .read_more :hover {
+        color: #000
+    }
+.Proceed{
+    width: 40%;
+  
+    background-color: rgb(41, 77, 236);
+    height: 50px;
+    font-size: 16pt;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 0px;
+    color: #fff;
+    margin-left:20px;
+
+}
+.col-sm-6{
+    text-align:right;
+    margin-right: 35px;
+}
+
+    /* Quantity */
+    .quantity {
+        padding-top: 20px;
+        margin-right: 60px;
+      }
+.quantity input {
+        -webkit-appearance: none;
+        border: none;
+        text-align: center;
+        width: 32px;
+        font-size: 16px;
+        color: #43484D;
+        font-weight: 300;
+      }
+      button[class*=btn] {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(23, 58, 216);
+        color:white;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button[class*=btn]:hover{
+        width: 30px;
+        height: 30px;
+        background-color: #ffffff;
+        color:blue;
+        
+        border-radius: 2px solid blue;
+        border:1px solid #6f7dff;
+       
+        cursor: pointer;
+      }
+      .minus-btn img {
+        margin-bottom: 3px;
+      }
+      .plus-btn img {
+        margin-top: 2px;
+      }
+       
+      button:focus,
+      input:focus {
+        outline:0;
+      }
+
+
+
+/* 
+      SPECIFICATIONS CARD */
+
+      .about-card {
+        width: 300px;
+        height: 300px;
+        transform-style: preserve-3d;
+        perspective: 500px;
+        border: none;
+        background-color: inherit
+    }
+    
+        .about-card .face {
+            position: absolute;
+            color: rgb(85, 144, 255);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.06);
+            transform-style: preserve-3d;
+            transition: 0.8s;
+            backface-visibility: hidden;
+            border-top: 1px solid #ddd;
+            border-left: 1px solid #ddd
+        }
+    
+            .about-card .face.front-face,
+            .about-card .face.back-face {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center
+            }
+    
+                .about-card .face.front-face .profile {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover
+                }
+    
+                .about-card .face.front-face .name {
+                    letter-spacing: 2px
+                }
+    
+                .about-card .face.front-face .designation {
+                    font-size: 0.8rem;
+                    color: rgb(67, 80, 255);
+                    letter-spacing: 0.8px
+                }
+    
+        .about-card:hover .face.front-face {
+            transform: rotateY(180deg)
+        }
+    
+        .about-card .face.back-face {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.06);
+            transform: rotateY(180deg);
+            padding: 20px 30px;
+            text-align: center;
+            user-select: none
+        }
+    
+            .about-card .face.back-face .fa-quote-left {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                font-size: 1.2rem
+            }
+    
+            .about-card .face.back-face .fa-quote-right {
+                position: absolute;
+                bottom: 35px;
+                right: 25px;
+                font-size: 1.2rem
+            }
+    
+        .about-card:hover .face.back-face {
+            transform: rotateY(360deg)
+        }
